@@ -1,9 +1,9 @@
-import React from 'react'
+import Navbar from './pages/Navbar'
 
 const App = () => {
   return (
     <div>
-      <h1 className='text-center bg-slate-300 text-2xl'>Influencer Gears</h1>
+     <Navbar />
     </div>
   )
 }

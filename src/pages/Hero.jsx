@@ -4,7 +4,7 @@ import Button from "../components/button";
 
 const Hero = () => {
   return (
-    <div className="my-10 flex min-h-[60vh] flex-wrap  items-center justify-center gap-10 xl:justify-between">
+    <div className="my-10 flex min-h-[70vh] flex-wrap  items-center justify-center gap-10 xl:justify-between">
       <div>
         <h1 className="text-3xl font-extrabold md:text-5xl">
           Start your Journey as <br /> Influencer

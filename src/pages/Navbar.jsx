@@ -3,7 +3,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { BsCartPlus } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
-import navItems from "../../public";
+import { navItems } from "../../public";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);

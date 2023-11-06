@@ -1,5 +1,6 @@
 import Hero from "./pages/Hero";
 import Navbar from "./pages/Navbar";
+import Products from "./pages/Products";
 import Sponsors from "./pages/Sponsors";
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
       <Navbar />
       <Hero />
       <Sponsors />
+      <Products />
     </div>
   );
 };

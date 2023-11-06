@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "img": "https://i.ibb.co/KhXPgnV/tripod.png",
+    "title": "Flex Tripod",
+    "price": 50.48,
+    "rating": 4.99,
+    "shifting": "Wordwide shifting",
+    "status": "available",
+    "possibility": "Buyers protection possible!"
+  },
+  {
+    "id": 2,
+    "img": "https://i.ibb.co/9VQgxrc/mic.png",
+    "title": "Flex Tripod",
+    "price": 120.25,
+    "rating": 4.99,
+    "shifting": "Wordwide shifting",
+    "status": "available",
+    "possibility": "Buyers protection possible!"
+  },
+  {
+    "id": 3,
+    "img": "https://i.ibb.co/mXGdtVS/airpod.png",
+    "title": "Flex Tripod",
+    "price": 100.0,
+    "rating": 4.99,
+    "shifting": "Wordwide shifting",
+    "status": "available",
+    "possibility": "Buyers protection possible!"
+  },
+  {
+    "id": 4,
+    "img": "https://i.ibb.co/6Rbxc72/drone.png",
+    "title": "Flex Tripod",
+    "price": 980.25,
+    "rating": 4.99,
+    "shifting": "Wordwide shifting",
+    "status": "available",
+    "possibility": "Buyers protection possible!"
+  },
+  {
+    "id": 5,
+    "img": "https://i.ibb.co/JrX2JTb/lights.png",
+    "title": "Flex Tripod",
+    "price": 1200.0,
+    "rating": 4.99,
+    "shifting": "Wordwide shifting",
+    "status": "available",
+    "possibility": "Buyers protection possible!"
+  },
+  {
+    "id": 6,
+    "img": "https://i.ibb.co/FBcvGKR/setup.png",
+    "title": "Flex Tripod",
+    "price": 820.4,
+    "rating": 4.99,
+    "shifting": "Wordwide shifting",
+    "status": "available",
+    "possibility": "Buyers protection possible!"
+  },
+  {
+    "id": 7,
+    "img": "https://i.ibb.co/1dxHvfV/camera.png",
+    "title": "Flex Tripod",
+    "price": 1800.8,
+    "rating": 4.99,
+    "shifting": "Wordwide shifting",
+    "status": "available",
+    "possibility": "Buyers protection possible!"
+  },
+  {
+    "id": 8,
+    "img": "https://i.ibb.co/RbDpcHP/single-light.png",
+    "title": "Flex Tripod",
+    "price": 25.48,
+    "rating": 4.99,
+    "shifting": "Wordwide shifting",
+    "status": "available",
+    "possibility": "Buyers protection possible!"
+  },
+  {
+    "id": 9,
+    "img": "https://i.ibb.co/Yjfd7tZ/action.png",
+    "title": "Flex Tripod",
+    "price": 380.0,
+    "rating": 4.99,
+    "shifting": "Wordwide shifting",
+    "status": "available",
+    "possibility": "Buyers protection possible!"
+  }
+]

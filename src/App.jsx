@@ -1,3 +1,4 @@
+import FeaturedProduct from "./pages/FeaturedProduct";
 import Hero from "./pages/Hero";
 import Navbar from "./pages/Navbar";
 import Products from "./pages/Products";
@@ -10,6 +11,7 @@ const App = () => {
       <Hero />
       <Sponsors />
       <Products />
+      <FeaturedProduct />
     </div>
   );
 };

@@ -4,8 +4,7 @@ import { AiFillStar } from "react-icons/ai";
 import { BsStarHalf } from "react-icons/bs";
 
 const Product = ({ product }) => {
-  const { title, img, price, possibility, status, shifting, rating  } = product;
-  console.log(rating)
+  const { title, img, price, possibility, status, shifting, rating } = product;
   return (
     <div className="rounded-lg p-3 shadow-xl">
       <img className="mt-3" src={img} alt={title} />
@@ -19,11 +18,14 @@ const Product = ({ product }) => {
           <AiFillStar />
           <BsStarHalf />
         </div>
-        <div className="ml-5 my-1">{rating }</div>
+        <div className="my-1 ml-5">{rating}</div>
       </h3>
       <p>{shifting}</p>
       <p className="my-1">{status}</p>
       <p>{possibility}</p>
+      <button className="mt-3 w-full transition-all rounded-md bg-[#E02C6D] p-2 text-[14px]   font-semibold text-white hover:tracking-tight">
+        Show Details
+      </button>
     </div>
   );
 };

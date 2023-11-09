@@ -13,7 +13,7 @@ const ProductDetail = () => {
 
   return (
     <div className="mx-auto max-w-[1200px] p-10">
-      <h1 className="text-center text-2xl">Product: 0{id}</h1>{" "}
+      <h1 className="text-center mt-20 text-2xl">Product: 0{id}</h1>{" "}
       <Link to="/">
         <button className="mt-3 rounded-md bg-[#E02C6D] p-2 text-[14px] font-semibold   text-white transition-all hover:bg-[#af2d5d]">
           Go To Home Page

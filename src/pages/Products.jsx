@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Button from "../components/Button";
 import Product from "../components/Product";
 
 const Products = () => {
@@ -26,12 +25,14 @@ const Products = () => {
         {products.slice(0, productShow).map((product) => (
           <Product key={product.id} product={product} />
         ))}
-        <div
-          className={productShow === products.length && "hidden"}
-          onClick={() => setProductShow(products.length)}
-        >
-          <Button button="Show All" />
-        </div>
+      </div>
+      <div
+        className={productShow === products.length && "hidden"}
+        onClick={() => setProductShow(products.length)}
+      >
+        <button className="mx-auto mt-20 flex w-52  items-center justify-center rounded-md bg-[#E02C6D]   p-2 text-[14px] font-semibold  text-white transition-all hover:bg-[#af2d5d]">
+          Show All
+        </button>
       </div>
     </div>
   );

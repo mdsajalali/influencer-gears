@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
-
 import { AiFillStar } from "react-icons/ai";
 import { BsStarHalf } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
-  const { title, img, price, possibility, status, shifting, rating } = product;
+  const { id, title, img, price, possibility, status, shifting, rating } =
+    product;
   return (
     <div className="rounded-lg p-3 shadow-xl">
       <img className="mt-3" src={img} alt={title} />
@@ -23,9 +24,11 @@ const Product = ({ product }) => {
       <p>{shifting}</p>
       <p className="my-1">{status}</p>
       <p>{possibility}</p>
-      <button className="mt-3 w-full transition-all rounded-md bg-[#E02C6D] p-2 text-[14px]   font-semibold text-white hover:tracking-tight">
-        Show Details
-      </button>
+      <Link to={`product/${id}`}>
+        <button className="mt-3 w-full rounded-md bg-[#E02C6D] p-2 text-[14px] font-semibold text-white   transition-all hover:bg-[#af2d5d] hover:tracking-tight">
+          Show Details
+        </button>
+      </Link>
     </div>
   );
 };

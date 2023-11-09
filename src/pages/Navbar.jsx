@@ -3,6 +3,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { BsCartPlus } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
+import { Link } from "react-router-dom";
 import { navItems } from "../../public";
 
 const Navbar = () => {
@@ -31,12 +32,12 @@ const Navbar = () => {
       >
         {navItems.map((item) => (
           <li key={item.id} className="my-5 md:my-0 ">
-            <a
+            <Link
               className="text-[17px]  transition-all hover:text-[#E02C6D]   "
               href={item.path}
             >
               {item.name}
-            </a>
+            </Link>
           </li>
         ))}
         <div className="flex items-center gap-4">

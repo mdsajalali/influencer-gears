@@ -1,5 +1,5 @@
 import { sponsors } from "../../public";
-import Sponsor from "../components/sponsor";
+import Sponsor from "../components/Sponsor";
 
 const Sponsors = () => {
   return (

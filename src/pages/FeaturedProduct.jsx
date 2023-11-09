@@ -1,5 +1,5 @@
 import gear from "../assets/images/gear.png";
-import Button from "../components/button";
+import Button from "../components/Button";
 
 const FeaturedProduct = () => {
   return (

@@ -1,6 +1,6 @@
 import bgCircle from "../assets/images/bg-circle.svg";
 import DSLRCamera from "../assets/images/dslr-camera.png";
-import Button from "../components/button";
+import Button from "../components/Button";
 
 const Hero = () => {
   return (

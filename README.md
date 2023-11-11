@@ -1,6 +1,6 @@
 # Influencer Gears Website
 
-> Responsive nfluencer Gears Website
+> Responsive influencer Gears Website
 
 ## Used Technology
 

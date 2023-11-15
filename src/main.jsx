@@ -5,6 +5,8 @@ import App from "./App.jsx";
 import ProductDetail from "./components/ProductDetail.jsx";
 import "./index.css";
 import Root from "./Root/Root";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
         path: "/product/:id",
         element: <ProductDetail />,
         loader: () => fetch("/productsData.json"),
+      }, 
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },

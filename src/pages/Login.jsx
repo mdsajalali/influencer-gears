@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import github from "../assets/images/github.png";
 import google from "../assets/images/google.png";
@@ -6,14 +6,16 @@ import loginImg from "../assets/images/login.jpg";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, updatePassword, googleLogin, githubLogin } =
+    useContext(AuthContext);
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
+  const emailRef = useRef();
 
   const handleLogin = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     const email = e.target.email.value;
-    const password = e.target.password.value; 
+    const password = e.target.password.value;
     console.log(email, password);
 
     loginUser(email, password)
@@ -23,9 +25,52 @@ const Login = () => {
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const handleForgetPassword = () => {
+    const email = emailRef.current.value;
+     if (!email) {
+       console.log("please provide an email", emailRef.current.value);
+       return;
+     }    
+
+    updatePassword(email)
+      .then(() => {
+        alert("please check your email");
+      })
+      .catch((error) => {
         console.log(error);
       });
   };
+
+    const handleGoogleLogin = () => {
+      googleLogin()
+        .then((result) => {
+          console.log(result.user);
+          navigate("/");
+          alert("Google Login Successful");
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    };
+
+
+     const handleGithubLogin = () => {
+       githubLogin()
+         .then((result) => {
+           console.log(result.user);
+           navigate("/");
+           alert("Github Login Successful");
+         })
+         .catch((error) => {
+           alert(error.message);
+         });
+     };
+
+
   return (
     <div className="flex">
       <div className="hidden  flex-1 xl:block">
@@ -45,6 +90,7 @@ const Login = () => {
               type="email"
               placeholder="Enter your email..."
               name="email"
+              ref={emailRef}
             />
             <input
               className="w-full rounded-sm border-none p-2 outline-none"
@@ -54,7 +100,7 @@ const Login = () => {
             />
 
             <div className="mt-4 font-semibold underline">
-              <Link>Forget Password?</Link>
+              <Link onClick={handleForgetPassword}>Forget Password?</Link>
             </div>
 
             <input
@@ -69,11 +115,18 @@ const Login = () => {
             <div className="h-[1px] w-1/2 bg-slate-400"></div>
           </div>
           <div>
-            <div className="my-5 flex cursor-pointer items-center justify-center gap-1 rounded-sm border border-black bg-white p-1 transition-all hover:tracking-wide ">
+            <div
+              onClick={handleGoogleLogin}
+              className="my-5 flex cursor-pointer items-center justify-center gap-1 rounded-sm border border-black bg-white p-1 transition-all hover:tracking-wide "
+            >
               <img className="w-10" src={google} alt="Google" />
               <p className="text-[18px] font-semibold">Sign In With Google</p>
             </div>
-            <div className="my-5 flex cursor-pointer items-center justify-center gap-2 rounded-sm border border-black bg-white p-1 transition-all hover:tracking-wide">
+
+            <div
+              onClick={handleGithubLogin}
+              className="my-5 flex cursor-pointer items-center justify-center gap-2 rounded-sm border border-black bg-white p-1 transition-all hover:tracking-wide"
+            >
               <img className="w-8" src={github} alt="Github" />{" "}
               <span className="text-[18px] font-semibold">
                 Sign In With Github

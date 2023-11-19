@@ -4,9 +4,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import ProductDetail from "./components/ProductDetail.jsx";
 import "./index.css";
-import Root from "./Root/Root";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
+import AuthProvider from "./providers/AuthProvider.jsx";
+import Root from "./Root/Root";
+import PrivateRoutes from "./routes/PrivateRoutes.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,9 +22,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:id",
-        element: <ProductDetail />,
+        element: (
+          <PrivateRoutes>
+            <ProductDetail />
+          </PrivateRoutes>
+        ),
         loader: () => fetch("/productsData.json"),
-      }, 
+      },
       {
         path: "/login",
         element: <Login />,
@@ -37,6 +43,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 );

@@ -1,9 +1,33 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import github from "../assets/images/github.png";
 import google from "../assets/images/google.png";
 import signupImg from "../assets/images/signup.jpg";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate()
+
+  const handleRegister = (e) => {
+    e.preventDefault()
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    console.log(name, email, password);
+
+    createUser(email, password)
+    .then(result => {
+      console.log(result.user)
+      e.target.reset()
+      navigate("/login")
+    }).catch(error => {
+      console.log(error)
+    })
+    
+  };
+
   return (
     <div className="flex">
       <div className="hidden flex-1 xl:block">
@@ -17,7 +41,7 @@ const Register = () => {
         <div className="mx-auto flex  min-h-screen w-[350px]   flex-col justify-center sm:w-[450px] md:w-[600px]">
           <h1 className="text-3xl font-semibold">Register</h1>
           <p className="my-3 ">Welcome Back! Please enter your details.</p>
-          <form>
+          <form onSubmit={handleRegister}>
             <input
               className="w-full rounded-sm border-none p-2 outline-none"
               type="text"
@@ -63,7 +87,7 @@ const Register = () => {
             <div className="my-5 flex cursor-pointer items-center justify-center gap-2 rounded-sm border border-black bg-white p-1 transition-all hover:tracking-wide">
               <img className="w-8" src={github} alt="Github" />{" "}
               <span className="text-[18px] font-semibold">
-                Sign In With Google
+                Sign In With Github
               </span>
             </div>
           </div>

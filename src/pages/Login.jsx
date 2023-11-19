@@ -1,9 +1,31 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import github from "../assets/images/github.png";
 import google from "../assets/images/google.png";
 import loginImg from "../assets/images/login.jpg";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
+  const { loginUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation()
+
+  const handleLogin = (e) => {
+    e.preventDefault(); 
+    const email = e.target.email.value;
+    const password = e.target.password.value; 
+    console.log(email, password);
+
+    loginUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        e.target.reset();
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="flex">
       <div className="hidden  flex-1 xl:block">
@@ -17,7 +39,7 @@ const Login = () => {
         <div className="mx-auto flex  min-h-screen w-[350px] flex-col justify-center sm:w-[450px] md:w-[600px]">
           <h1 className="text-3xl font-semibold">Login</h1>
           <p className="my-3 ">Welcome Back! Please enter your details.</p>
-          <form>
+          <form onSubmit={handleLogin}>
             <input
               className="mb-5 mt-2 w-full rounded-sm border-none p-2 outline-none"
               type="email"
@@ -54,7 +76,7 @@ const Login = () => {
             <div className="my-5 flex cursor-pointer items-center justify-center gap-2 rounded-sm border border-black bg-white p-1 transition-all hover:tracking-wide">
               <img className="w-8" src={github} alt="Github" />{" "}
               <span className="text-[18px] font-semibold">
-                Sign In With Google
+                Sign In With Github
               </span>
             </div>
           </div>

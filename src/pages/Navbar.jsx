@@ -1,13 +1,24 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { BsCartPlus } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { Link, NavLink } from "react-router-dom";
-import { navItems } from "../../public";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
+  const { signOutUser, user } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => {
+        alert("Sign-out successful");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="fixed left-0 right-0 z-10 bg-white px-10  py-5  shadow-lg">
       <div className="mx-auto flex max-w-[1200px] items-center justify-between md:flex ">
@@ -33,17 +44,29 @@ const Navbar = () => {
             click ? "" : "left-[-100%] md:left-0"
           }`}
         >
-          {navItems.map((item) => (
-            <li key={item.id} className="my-5 md:my-0 ">
-              <NavLink
-                onClick={() => setClick(!click)}
-                className="text-[17px]  transition-all hover:text-[#E02C6D]   "
-                to={item.path}
-              >
-                {item.name}
-              </NavLink>
+          <ul className="flex gap-5">
+            <li>
+              <NavLink to="/">Home</NavLink>
             </li>
-          ))}
+            <li>
+              <NavLink to="/products">Products</NavLink>
+            </li>
+            <li>
+              <NavLink to="/login">Login</NavLink>
+            </li>
+            <li>
+              <NavLink to="/register">Register</NavLink>
+            </li>
+            {user ? (
+              <li>
+                <Link to="/" onClick={handleSignOut}>
+                  LogOut
+                </Link>
+              </li>
+            ) : (
+              <></>
+            )}
+          </ul>
           <div className="flex items-center gap-4">
             <FiSearch className="text-2xl " />
             <BsCartPlus className="text-3xl" />

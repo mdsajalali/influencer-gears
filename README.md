@@ -1,13 +1,14 @@
-# Influencer Gears Website
+# Star Style Hub Website
 
-> Responsive influencer Gears Website
+> Responsive Star Style Hub Website
 
 ## Used Technology
 
 - [x] HTML
 - [x] TAILWINDCSS
 - [x] REACT.JS
+- [x] FIREBASE
 - [x] REACT ROUTER DOM
 - [x] REACT-ICON
 
-#### Influencer Gears Website : [Influencer-Gears](https://influencer-gears-website.vercel.app/)
+#### Star Style Hub Website : [Star-Style-Hub](https://star-style-hub.vercel.app/)

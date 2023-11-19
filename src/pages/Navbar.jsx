@@ -35,7 +35,7 @@ const Navbar = () => {
           </div>
           <Link to="/">
             <h1 className="hidden text-2xl  font-bold md:block">
-              Influencer products
+              Star Style Hub
             </h1>
           </Link>
         </div>

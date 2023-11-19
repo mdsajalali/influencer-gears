@@ -7,7 +7,7 @@ const Hero = () => {
     <div className="my-20 flex min-h-[60vh] flex-wrap  items-center justify-center gap-10 xl:justify-between">
       <div>
         <h1 className="text-3xl font-extrabold md:text-5xl">
-          Start your Journey as <br /> Influencer
+          Start your Journey as <br /> <h1 className="mt-4">Star Style Hub</h1>
         </h1>
         <p className="my-5 font-semibold">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sem <br />

@@ -40,22 +40,13 @@ const Navbar = () => {
           </Link>
         </div>
         <nav
-          className={`absolute top-[70px] list-none items-center gap-5 rounded-lg bg-[#343537] px-20 pb-10 text-center text-white shadow-lg md:static md:left-[40%]   md:flex md:rounded-none md:bg-transparent md:p-0 md:text-black   md:shadow-none ${
+          className={`absolute top-[70px]  list-none items-center gap-5 rounded-lg bg-[#343537] px-20 pb-10 text-center text-white shadow-lg md:static md:left-[40%]   md:flex md:rounded-none md:bg-transparent md:p-0 md:text-black   md:shadow-none ${
             click ? "" : "left-[-100%] md:left-0"
           }`}
         >
-          <ul className="flex gap-5">
+          <ul className="my-5 gap-5 sm:my-0 sm:flex">
             <li>
               <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/products">Products</NavLink>
-            </li>
-            <li>
-              <NavLink to="/login">Login</NavLink>
-            </li>
-            <li>
-              <NavLink to="/register">Register</NavLink>
             </li>
             {user ? (
               <li>
@@ -64,7 +55,14 @@ const Navbar = () => {
                 </Link>
               </li>
             ) : (
-              <></>
+              <>
+                <li className="py-5 sm:py-0">
+                  <NavLink to="/login">Login</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/register">Register</NavLink>
+                </li>
+              </>
             )}
           </ul>
           <div className="flex items-center gap-4">

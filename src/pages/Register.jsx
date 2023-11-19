@@ -71,18 +71,21 @@ const Register = () => {
               type="text"
               placeholder="Enter your name..."
               name="name"
+              required
             />
             <input
               className="my-5 w-full rounded-sm border-none p-2 outline-none"
               type="email"
               placeholder="Enter your email..."
               name="email"
+              required
             />
             <input
               className="w-full rounded-sm border-none p-2 outline-none"
               type="password"
               placeholder="Password..."
               name="password"
+              required
             />
 
             <input

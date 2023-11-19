@@ -31,10 +31,10 @@ const Login = () => {
 
   const handleForgetPassword = () => {
     const email = emailRef.current.value;
-     if (!email) {
-       console.log("please provide an email", emailRef.current.value);
-       return;
-     }    
+    if (!email) {
+      console.log("please provide an email", emailRef.current.value);
+      return;
+    }
 
     updatePassword(email)
       .then(() => {
@@ -45,31 +45,29 @@ const Login = () => {
       });
   };
 
-    const handleGoogleLogin = () => {
-      googleLogin()
-        .then((result) => {
-          console.log(result.user);
-          navigate("/");
-          alert("Google Login Successful");
-        })
-        .catch((error) => {
-          alert(error.message);
-        });
-    };
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        console.log(result.user);
+        navigate("/");
+        alert("Google Login Successful");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
 
-
-     const handleGithubLogin = () => {
-       githubLogin()
-         .then((result) => {
-           console.log(result.user);
-           navigate("/");
-           alert("Github Login Successful");
-         })
-         .catch((error) => {
-           alert(error.message);
-         });
-     };
-
+  const handleGithubLogin = () => {
+    githubLogin()
+      .then((result) => {
+        console.log(result.user);
+        navigate("/");
+        alert("Github Login Successful");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
 
   return (
     <div className="flex">
@@ -91,12 +89,14 @@ const Login = () => {
               placeholder="Enter your email..."
               name="email"
               ref={emailRef}
+              required
             />
             <input
               className="w-full rounded-sm border-none p-2 outline-none"
               type="password"
               placeholder="Password..."
               name="password"
+              required
             />
 
             <div className="mt-4 font-semibold underline">

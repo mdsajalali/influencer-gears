@@ -1,13 +1,18 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import github from "../assets/images/github.png";
 import google from "../assets/images/google.png";
 import signupImg from "../assets/images/signup.jpg";
 import { AuthContext } from "../providers/AuthProvider";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+
 
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
   const { createUser, googleLogin, githubLogin } = useContext(AuthContext);
   const navigate = useNavigate();
+  
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -80,13 +85,21 @@ const Register = () => {
               name="email"
               required
             />
-            <input
-              className="w-full rounded-sm border-none p-2 outline-none"
-              type="password"
-              placeholder="Password..."
-              name="password"
-              required
-            />
+            <div className="relative">
+              <input
+                className="w-full p-2 "
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Password..."
+                required
+              />
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-2 top-3 cursor-pointer"
+              >
+                {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+              </span>
+            </div>
 
             <input
               className="my-4 w-full cursor-pointer rounded-sm bg-black py-2 text-white transition-all hover:space-x-2 hover:tracking-wide"

@@ -1,11 +1,14 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import github from "../assets/images/github.png";
 import google from "../assets/images/google.png";
 import loginImg from "../assets/images/login.jpg";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
+    const [showPassword, setShowPassword] = useState(false);
+
   const { loginUser, updatePassword, googleLogin, githubLogin } =
     useContext(AuthContext);
   const navigate = useNavigate();
@@ -23,6 +26,7 @@ const Login = () => {
         console.log(result.user);
         e.target.reset();
         navigate(location?.state ? location.state : "/");
+        alert("Welcome to Star Style Hub🎉")
       })
       .catch((error) => {
         console.log(error.message);
@@ -91,13 +95,21 @@ const Login = () => {
               ref={emailRef}
               required
             />
-            <input
-              className="w-full rounded-sm border-none p-2 outline-none"
-              type="password"
-              placeholder="Password..."
-              name="password"
-              required
-            />
+            <div className="relative">
+              <input
+                className="w-full p-2 "
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Password..."
+                required
+              />
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-2 top-3 cursor-pointer"
+              >
+                {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+              </span>
+            </div>
 
             <div className="mt-4 font-semibold underline">
               <Link onClick={handleForgetPassword}>Forget Password?</Link>
